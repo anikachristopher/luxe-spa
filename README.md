@@ -1,24 +1,43 @@
-# README
+Notes
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Models:
 
-Things you may want to cover:
+Appointment
+    belongs_to :Client
+    has_many :services
+    has_many :clients, through: :services
+    belongs_to :services
+    
+    Attributes
+    date
+    time
 
-* Ruby version
 
-* System dependencies
+                                                                             join table - ClientAppointment
 
-* Configuration
+Client(User)
+    has_many :appointments
+    has_many :reviews
+    has_many :appointment_reviews, through :appointments
+    has_many :services, through: :appointments
 
-* Database creation
+    Attributes
+    username
+    email
+    phone
+    password_digest
 
-* Database initialization
 
-* How to run the test suite
+Review(Comment)
+    belongs_to :client
+    belongs_to :appointment
+    content
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+Service
+    has_many :appointments
+    has_many :clients, through: :appointments
 
-* ...
+    attributes
+    name
+    duration 
