@@ -15,6 +15,8 @@ class ClientsController < ApplicationController
     end
 
     def show
+        @client = Client.find_by_id(params[:id])
+       redirect_to '/' if !@client
     end
 
     private
