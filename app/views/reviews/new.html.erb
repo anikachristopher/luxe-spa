@@ -1,3 +1,12 @@
 <h1> Write a Review! </h1>
 
-<%= link_for
+<%= form_for(@review) do |f| %>
+
+    <%= f.label :content %>
+    <%= f.text_field :content%>
+
+    <br>
+    <br>
+    <%= f.submit %>
+
+<% end %>
