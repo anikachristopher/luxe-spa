@@ -10,11 +10,17 @@ post '/login' => 'sessions#create'
 delete '/logout' => 'sessions#destroy'
 
 
-resources :services, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+resources :services do 
+  resources :services, only: [:index, :show, :new, :create, :edit, :update]
+end
+
+resources :clients do
+  resources :clients, only: [:new, :create, :index]
+end
 
   #resources :services
   resources :reviews
-  resources :clients
+  #resources :clients
   resources :appointments
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

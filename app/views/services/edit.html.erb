@@ -1,9 +1,10 @@
-<%= form_tag articles_path do %>
-    <label>Services We Offer title:</label><br>
-    <%= text_field_tag :title %><br>
+ 
+<%= form_for @service do |f| %>
+    <%= f.label 'Service List' %><br>
+    <%= f.text_field :title %><br>
    
-    <label>Service Description</label><br>
-    <%= text_area_tag :description %><br>
+    <%= f.label 'Service Description' %><br>
+    <%= f.text_area :description %><br>
    
-    <%= submit_tag "Submit Article" %>
+    <%= f.submit "Select Service %>
   <% end %>

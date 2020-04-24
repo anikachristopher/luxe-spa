@@ -4,7 +4,7 @@ class ServicesController < ApplicationController
     end
 
     def new
-        @service - Service.new
+        @service = Service.new
     end
 
     def create
@@ -21,9 +21,14 @@ class ServicesController < ApplicationController
     end
 
     def update
+        #raise params.inspect
+        @service = Service.find(params[:id])
+        @service.update(title: params[:service][:name], cost: params[:service][:cost])
+        redirect_to service_path(@service)
     end
 
     def show
+        @service = Service.find_by_id(params[:id])
     end
 
 
