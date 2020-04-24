@@ -5,10 +5,10 @@ class SessionsController < ApplicationController
     def home
     end
 
-    def destroy
-        session.clear
-        redirect_to root_path
-    end
+    # def destroy
+    #     session.clear
+    #     redirect_to root_path
+    # end
 
     def create
         @client = Client.find_by(email: params[:client][:email])
