@@ -1,0 +1,14 @@
+<h1>Login</h1>
+
+<%= form_for :client do |f| %>
+
+    <%= f.label :email %>
+    <%= f.email_field :email, required:true %>
+
+    <%= f.label :password %>
+    <%= f.password_field :password, required:true %>
+    <br>
+    <br>
+    <%= f.submit "Login" %>
+
+    <% end %>
