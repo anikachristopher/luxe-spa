@@ -1,0 +1,9 @@
+<%= form_tag articles_path do %>
+    <label>Services We Offer title:</label><br>
+    <%= text_field_tag :title %><br>
+   
+    <label>Service Description</label><br>
+    <%= text_area_tag :description %><br>
+   
+    <%= submit_tag "Submit Article" %>
+  <% end %>

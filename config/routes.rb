@@ -9,7 +9,10 @@ post '/login' => 'sessions#create'
 
 delete '/logout' => 'sessions#destroy'
 
-  resources :services
+
+resources :services, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+
+  #resources :services
   resources :reviews
   resources :clients
   resources :appointments

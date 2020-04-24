@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
     def index
-        @service = Services.all
+        @service = Service.all
     end
 
     def new
@@ -9,11 +9,23 @@ class ServicesController < ApplicationController
 
     def create
     @service = Service.new(service_params)
-    if @service.save
-        render :show
-    else
-        render :new
+        if @service.save
+            render :show
+        else
+            render :new
+        end
     end
+
+    def edit
+        @service = Service.find(params[:id])
+    end
+
+    def update
+    end
+
+    def show
+    end
+
 
     def destroy 
         Service.find(params[:id]).destroy
