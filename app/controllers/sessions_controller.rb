@@ -21,6 +21,10 @@ class SessionsController < ApplicationController
         end
     end
 
+    def google
+    end
+    
+
     def destroy
         session.clear
         redirect_to '/'

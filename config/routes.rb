@@ -9,6 +9,8 @@ post '/login' => 'sessions#create'
 
 delete '/logout' => 'sessions#destroy'
 
+get '/auth/:provider/callback' => 'sessions#google'
+
 
 resources :services do 
   resources :services, only: [:index, :show, :new, :create, :edit, :update]
