@@ -9,7 +9,7 @@ post '/login' => 'sessions#create'
 
 delete '/logout' => 'sessions#destroy'
 
-get '/auth/:provider/callback' => 'sessions#create'
+get '/auth/google_oauth2/callback' => 'sessions#google'
 
 
 resources :services do 

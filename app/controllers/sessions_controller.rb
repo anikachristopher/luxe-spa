@@ -11,33 +11,32 @@ class SessionsController < ApplicationController
     # end
 
     def create
-        if auth_hash = request.env["omniauth.auth"]
-        oauth_email = request.env["omniauth.auth"]["email"]
-        end
-        
-        if client = Client.find_by(:email => oauth_email)
-            session[:client_id] = @client.id
-        else
-            client = Client.create(:email => oauth_email)
-            session[:client_id] = @client.id
-        end
-
-        else
+        if 
             @client = Client.find_by(email: params[:client][:email])
-        if @client && @client.authenticate(params[:client][:password])
-            session[:client_id] = @client.id
-            redirect_to @client
-        # else
-        #     flash[:message] = "Hmm..That Doesn't Look Right. Please try again"
-        #     redirect_to "/login"
+            @client && @client.authenticate(params[:client][:password])
+                session[:client_id] = @client.id
+                redirect_to @client
+            else
+                flash[:message] = "Hmm..That Doesn't Look Right. Please try again"
+                redirect_to "/login"
         end
     end
+
+
+    
 
     def google
         @client = Client.find_or_create_by(email: auth["info"]["email"]) do |client|
             client.first_name = auth["info"]["first_name"]
             client.last_name = auth["info"]["last_name"]
             client.password = SecureRandom.hex    
+        end
+
+        if @client.save
+        session[:client_id] = @client.id
+        redirect_to client_path(@client)
+        else
+            redirect_to login_path
         end
     end
 

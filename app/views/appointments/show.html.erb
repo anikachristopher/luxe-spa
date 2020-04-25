@@ -1,0 +1,15 @@
+<% if @appointments.blank? %>
+<p>Looks like you don't have any appointments in the system </p>
+<% else %>
+<p>These are your current appointments</p>
+
+# <ul id = "books">
+#    <% @appointments.each do |c| %>
+#    <li><%= link_to c.title, {:action => 'show', :id => c.id} -%></li>
+#    <% end %>
+# </ul>
+
+# <% end %>
+# <p><%= link_to "Add new Book", {:action => 'new' }%></p>
+
+

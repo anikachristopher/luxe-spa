@@ -23,9 +23,9 @@ class ReviewsController < ApplicationController
     end
 
     def update
-        @review = Review.find(params[:id])
-        @review.update(title: params[:review][:name], cost: params[:service][:content]) #may not work since name is not part of schema
-        redirect_to review_path(@review)
+        @review = Review.find(review_params[:id])
+        @review.update(name: review_params[:name], content: review_params[:content]) #have to add name column to reviews table. may not work since name is not part of schema
+        redirect_to review_path(@review) #review URL helpers 
     end
 
     private

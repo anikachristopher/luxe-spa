@@ -1,5 +1,7 @@
 class Client < ApplicationRecord
     has_secure_password
+    
+    validates_presence_of :email
 
     has_many :appointments
     has_many :services, through: :appointments
@@ -7,6 +9,8 @@ class Client < ApplicationRecord
     has_many :reviews
     has_many :reviewed_appointments, through: :reviews, source: :client
     
+   
+
     def self.from_omniauth(auth)
         where(email: auth.info.email).first_or_initialize do |client|
             client.first_name = auth.info.first_name
