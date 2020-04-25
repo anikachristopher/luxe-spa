@@ -14,10 +14,6 @@ module ApplicationHelper
         end
     end
 
-    def is_logged_in
-    end
-
-
     def redirect_if_not_logged_in
         redirect_to '/' if !is_logged_in?
       end 
