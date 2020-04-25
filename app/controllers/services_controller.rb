@@ -8,9 +8,9 @@ class ServicesController < ApplicationController
     end
 
     def create
-    @service = Service.new(service_params)
-        if @service.save
-            render :show
+         @review = current_client.reviews.build(review_params)
+        if @review.save
+            redirect_to appointment_path
         else
             render :new
         end
