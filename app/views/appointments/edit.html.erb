@@ -1,0 +1,29 @@
+<h1>Edit Upcoming Appointment <%= @appointment.title%></h1>
+
+# <%= render partial: "layouts/errors", locals: {object: @appointment} %>
+
+# <%= form_for(@appointment) do |f|%>
+
+#   <%= f.label "Choose a category:" %>
+#   <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: true %>
+
+
+#    <p>Or create a new service:
+#   <%= f.fields_for :service do |c|%>
+#     <%= c.text_field :name%>
+#   <% end %>
+#   </p>
+
+  <br>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br></br>
+  <%= f.label :date %>
+  <%= f.date_field :date%>
+  <br></br>
+  <%= f.label :time %>
+  <%= f.time_field :time%>
+
+  <%= f.submit %>
+
+<% end %>

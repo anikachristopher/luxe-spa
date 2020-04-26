@@ -1,15 +1,22 @@
-<% if @appointments.blank? %>
-<p>Looks like you don't have any appointments in the system </p>
-<% else %>
-<p>These are your current appointments</p>
+<h1><%=@appointment.title%></h1>
+<h2>By: <%=link_to @appointment.client.first_name, client_path(@appointment.client)%> </h2>
 
-# <ul id = "books">
-#    <% @appointments.each do |c| %>
-#    <li><%= link_to c.title, {:action => 'show', :id => c.id} -%></li>
-#    <% end %>
-# </ul>
+<h3>Service: <%= @appointment.service.try(:name)%></h3>
+<% if @appointment.client == current_client %>
+<h4><%= link_to "Edit appointment", edit_appointment_path(@appointment)%></h4>
+<% end %>
 
-# <% end %>
-# <p><%= link_to "Add new Book", {:action => 'new' }%></p>
+<div><%= @appointment.content%></div>
 
 
+<p><%= link_to 'Add a Review', new_appointment_review_path(@appointment)%></p>
+
+<% if !@appointment.reviews.empty? %>
+  <p><%= link_to 'See all reviews', appointment_reviews_path(@appointment)%></p>
+  <h4>Most Recent reviews:</h4>
+  <% @appointment.reviews.order(updated_at: :desc).limit(3).each do |c|%>
+    <li>
+      <strong><%= c.client.first_name%></strong> says "<%= link_to c.content, appointment_review_path(@appointment,c)%>" at <%= c.updated_at.strftime("%I:%M %p on %m/%d/%Y") %>
+    </li>
+  <% end %>
+<% end %>
