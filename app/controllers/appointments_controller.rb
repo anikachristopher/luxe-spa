@@ -1,6 +1,19 @@
 class AppointmentsController < ApplicationController
     before_action :login_required
 
+    def index
+        if params[:appointment_id]
+            @appointment = Appointment.find_by_id(params[:appointment_id])
+            if @appointment
+                @reviews = @appointment.reviews
+            else
+                @appointments = Appointment.all
+            end
+        else
+            @appointments = Appointment.all
+        end
+    end
+
     def new
         @appointment = Appointment.new
     end

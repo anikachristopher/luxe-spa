@@ -4,10 +4,9 @@
                     <ul>
                             <% current_client.appointments.each do |appointment| %>
                         <li>
-                            <%= link_to appointment.service.title, appointment_path(appointment) %> 
+                            <%= link_to appointment.service.name, appointment_path(appointment) %> 
                         </li>
                             <% end %>
-                        <h5 class="card-title mt-3 text-center">We are looking forward to servicing you!!!</h5>
                     </ul>
                     <div class="container mt-5">
                         <div class="row">

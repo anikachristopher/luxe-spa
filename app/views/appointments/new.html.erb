@@ -3,15 +3,14 @@
 
 <%= form_for(@appointment) do |f|%>
 
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.label "Pick a Service" %><br />
+    <%= f.collection_select :services_id, Service.all, :id, :name, prompt: true %><br/>
     <br>
     <%= f.label :date %>
     <%= f.date_field :date %>
     <br>
     <%= f.label :time %>
     <%= f.time_field :time%>
-    <br>
     <br>
     <%= f.submit "Submit" %>
 

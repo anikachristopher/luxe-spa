@@ -1,1 +1,11 @@
-<h1><%= @service.name %></h1>
+<ul>
+    <h3><%= @service.name %></h3><br>
+        <%= @service.cost %> |
+        <%= @service.duration %> <br>
+        <%= @service.description %
+</ul>
+
+<% @category.posts.each do  |post| %>
+    <li><%= link_to post.title, post_path(post)  %></li>
+  <% end  %>
+</ol>
