@@ -1,18 +1,11 @@
 <% if current_client %>
-                <h2>Upcoming Appointments for <%= current_client.first_name %></h2>
+    <h2>Upcoming Appointments for <%= current_client.first_name %></h2>
+        <% current_client.appointments.each do |appointment| %>
+        <li>
+        <%= link_to appointment.service.name, appointment_path(appointment) %> 
+        </li>
+    <% end %>
                 
-                    <ul>
-                            <% current_client.appointments.each do |appointment| %>
-                        <li>
-                            <%= link_to appointment.service.name, appointment_path(appointment) %> 
-                        </li>
-                            <% end %>
-                    </ul>
-                    <div class="container mt-5">
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <a class="btn btn-secondary" <%= link_to "Book a New Appointment", new_appointment_path %></a>
-                            </div>
-                        </div>
-                    </div>
+         <%= link_to "Book a New Appointment", new_appointment_path %></a>
+                        
     <% end %>

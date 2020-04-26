@@ -6,19 +6,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Refresh = Service.create(name: 'Refresher Facial', duration:'30 mins', description:'The refresher facial will decrease facial water retention and balance, cleanse, and moisturize your face.', cost:'$65'
+Refresh = Service.create(name: 'Refresher Facial', duration:'30 mins', description:'The refresher facial will decrease facial water retention and balance, cleanse, and moisturize your face.', cost:'$65')
 
-Men Facial = Service.create(name: 'Gentleman's Facial', duration:'60 mins', description:'The gentleman’s facial begins with a deep cleansing, followed by an exfoliating scrub and extraction. To help replenish the skin, the facial ends with a soothing mask used to balance and hydrate your skin, and alleviate shaving irritation.', cost:'$110'
+Men Facial = Service.create(name: 'Gentleman's Facial', duration:'60 mins', description:'The gentleman’s facial begins with a deep cleansing, followed by an exfoliating scrub and extraction. To help replenish the skin, the facial ends with a soothing mask used to balance and hydrate your skin, and alleviate shaving irritation.', cost:'$110')
 
-Improve = Service.create(name: 'Improve Facial', duration:'60 mins', description:'Designed to improve your skin by clearing congested pores and clarifying your skin. This facial includes an enzyme and nutrient formulated mask to promote deep pore cleansing, in addition to an extraction and massage.', cost:'$110'
+Improve = Service.create(name: 'Improve Facial', duration:'60 mins', description:'Designed to improve your skin by clearing congested pores and clarifying your skin. This facial includes an enzyme and nutrient formulated mask to promote deep pore cleansing, in addition to an extraction and massage.', cost:'$110')
 
-Correct = Service.create(name: 'Correct & Pamper', duration:'90 mins', description:'Our ultimate signature facial will correct common skin problems such as congested pores, dehydration, aging, and discoloration. Your skin will look and feel rejuvenated, youthful, and radiant.', cost:'$160'
+Correct = Service.create(name: 'Correct & Pamper', duration:'90 mins', description:'Our ultimate signature facial will correct common skin problems such as congested pores, dehydration, aging, and discoloration. Your skin will look and feel rejuvenated, youthful, and radiant.', cost:'$160')
 
-Back = Service.create(name: 'Back Facials', duration:'30 mins', description:'Back facials can be beneficial in cleansing those tough-to-reach spots, targeting a variety of skin care needs such as clogged pores, back acne, and dehydrated skin. This treatment incorporates deep cleansing, extractions, and purifying masks.', cost:'$75'
+Back = Service.create(name: 'Back Facials', duration:'30 mins', description:'Back facials can be beneficial in cleansing those tough-to-reach spots, targeting a variety of skin care needs such as clogged pores, back acne, and dehydrated skin. This treatment incorporates deep cleansing, extractions, and purifying masks.', cost:'$75')
 
-Scrub = Service.create(name: 'Aromatic Sugar Scrub', duration:'30 mins', description:'This full body exfoliation will leave your skin feeling silky smooth by eliminating dead skin cells and impurities, and allowing easier absorption of any moisturizing agent for healthier skin.', cost:'$95'
+Scrub = Service.create(name: 'Aromatic Sugar Scrub', duration:'30 mins', description:'This full body exfoliation will leave your skin feeling silky smooth by eliminating dead skin cells and impurities, and allowing easier absorption of any moisturizing agent for healthier skin.', cost:'$95')
 
-Wrap = Service.create(name: 'Detoxifying Mud Wrap', duration:'60 mins', description:'An effective detox solution that eases the body’s water-retention. This unique treatment consists of an aroma sugar scrub and a detoxifying algae body mask.', cost:'$135'
+Wrap = Service.create(name: 'Detoxifying Mud Wrap', duration:'60 mins', description:'An effective detox solution that eases the body’s water-retention. This unique treatment consists of an aroma sugar scrub and a detoxifying algae body mask.', cost:'$135')
 
-Avocado Wrap = Service.create(name: 'Avocado & Silk Wrap', duration:'60 mins', description:'This special wrap optimizes levels of fat and moisture in the skin and smooths dry, flaky patches. It also conditions the skin to feel soft and supply, reduces lines and wrinkles, and protects the skin from premature aging.', cost:'$150'
+Avocado Wrap = Service.create(name: 'Avocado & Silk Wrap', duration:'60 mins', description:'This special wrap optimizes levels of fat and moisture in the skin and smooths dry, flaky patches. It also conditions the skin to feel soft and supply, reduces lines and wrinkles, and protects the skin from premature aging.', cost:'$150')
 

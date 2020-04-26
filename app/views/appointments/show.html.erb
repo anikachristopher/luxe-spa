@@ -9,14 +9,14 @@
 <div><%= @appointment.content%></div>
 
 
-<p><%= link_to 'Add a Review', new_appointment_review_path(@appointment)%></p>
+# <p><%= link_to 'Add a Review', new_appointment_review_path(@appointment)%></p>
 
-<% if !@appointment.reviews.empty? %>
-  <p><%= link_to 'See all reviews', appointment_reviews_path(@appointment)%></p>
-  <h4>Most Recent reviews:</h4>
-  <% @appointment.reviews.order(updated_at: :desc).limit(3).each do |c|%>
-    <li>
-      <strong><%= c.client.first_name%></strong> says "<%= link_to c.content, appointment_review_path(@appointment,c)%>" at <%= c.updated_at.strftime("%I:%M %p on %m/%d/%Y") %>
-    </li>
-  <% end %>
-<% end %>
+# <% if !@appointment.reviews.empty? %>
+#   <p><%= link_to 'See all reviews', appointment_reviews_path(@appointment)%></p>
+#   <h4>Most Recent reviews:</h4>
+#   <% @appointment.reviews.order(updated_at: :desc).limit(3).each do |c|%>
+#     <li>
+#       <strong><%= c.client.first_name%></strong> says "<%= link_to c.content, appointment_review_path(@appointment,c)%>" at <%= c.updated_at.strftime("%I:%M %p on %m/%d/%Y") %>
+#     </li>
+#   <% end %>
+# <% end %>
