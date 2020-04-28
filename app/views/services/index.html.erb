@@ -1,10 +1,11 @@
 <h1> List of Services </h1>
 
 <% Service.all.each do |service| %>
-    <ul>
-    <%= link_to service.name, service_path(service) %>
-    </ul>
-    <% end %>
+<li><%= link_to f.title, {:action => 'show', :id => f.id} -%></li>
+<% end %>
+</ul>
+         
+<p><%= link_to "Add new Appointment", {:action => 'new' }%></p>
 
-          <%= link_to "Book Appointment", new_appointment_path %>
 
+        

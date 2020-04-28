@@ -12,15 +12,14 @@ delete '/logout' => 'sessions#destroy'
 get '/auth/google_oauth2/callback' => 'sessions#google'
 
 
-resources :appointments do 
-  resources :reviews
-end
+resources :appointments, only: [:new, :create, :index, :show]
+
+resources :services, only: [:index, :show]
 
 resources :clients do
   resources :clients, only: [:new, :create, :index]
 end
 
-  resources :services
   resources :reviews
   #resources :clients
   #resources :appointments

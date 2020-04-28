@@ -1,10 +1,10 @@
 <h1>Add new Appointment</h1>
 
 
-<%= form_for(@appointment) do |f|%>
+    <%= form_for(@appointment) do |f|%>
 
-    <%= f.label "Pick a Service" %><br />
-    <%= f.collection_select :services_id, Service.all, :id, :name, prompt: true %><br/>
+    <%= f.label "Pick a Service" %><br/>
+    <%= f.collection_select :service_id, Service.all, :id, :name, prompt: true %><br/>
     <br>
     <%= f.label :date %>
     <%= f.date_field :date %>
@@ -14,4 +14,4 @@
     <br>
     <%= f.submit "Submit" %>
 
-<% end %>
+    <% end %>

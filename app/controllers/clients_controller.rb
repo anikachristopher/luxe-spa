@@ -19,6 +19,7 @@ class ClientsController < ApplicationController
 
     def show
         redirect_if_not_logged_in
+        flash[:message] = "Please log in or create an account to get started"
         @client = Client.find_by_id(params[:id])
        redirect_to '/' if !@client
     end

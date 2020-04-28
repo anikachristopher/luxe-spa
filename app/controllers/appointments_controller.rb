@@ -2,16 +2,7 @@ class AppointmentsController < ApplicationController
     before_action :login_required
 
     def index
-        if params[:appointment_id]
-            @appointment = Appointment.find_by_id(params[:appointment_id])
-            if @appointment
-                @reviews = @appointment.reviews
-            else
-                @appointments = Appointment.all
-            end
-        else
-            @appointments = Appointment.all
-        end
+        @appointments = current_client.appointments
     end
 
     def new
@@ -32,7 +23,7 @@ class AppointmentsController < ApplicationController
     end
 
     def edit
-        @review = Review.find(params[:id])
+        @appointment = Appointment.find(params[:id])
     end
 
     def update
@@ -47,7 +38,7 @@ class AppointmentsController < ApplicationController
     private
 
     def appointment_params
-        params.require(:appointment).permit(:title, :date, :time)
+        params.require(:appointment).permit(:title, :date, :time, :service_id)
     end
 
 end

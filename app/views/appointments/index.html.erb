@@ -1,11 +1,16 @@
-<% if current_client %>
-    <h2>Upcoming Appointments for <%= current_client.first_name %></h2>
-        <% current_client.appointments.each do |appointment| %>
-        <li>
-        <%= link_to appointment.service.name, appointment_path(appointment) %> 
-        </li>
-    <% end %>
-                
-         <%= link_to "Book a New Appointment", new_appointment_path %></a>
-                        
-    <% end %>
+
+
+<h2>Upcoming Appointments for <%= current_client.first_name %></h2>
+<% if @appointments.blank? %>
+<p>There are not any appointments currently in the system.</p>
+<% else %>
+<p>These are your current appointments in our system</p>
+
+<ul id = "appointments">
+   <% @appointments.each do |f| %>
+   <li><%= link_to f.title, {:action => 'show', :id => f.id} -%></li>
+   <% end %>
+</ul>
+
+<% end %>
+<p><%= link_to "Add new Appointment", {:action => 'new' }%></p>

@@ -8,7 +8,7 @@
 
 Refresh = Service.create(name: 'Refresher Facial', duration:'30 mins', description:'The refresher facial will decrease facial water retention and balance, cleanse, and moisturize your face.', cost:'$65')
 
-Men Facial = Service.create(name: 'Gentleman's Facial', duration:'60 mins', description:'The gentleman’s facial begins with a deep cleansing, followed by an exfoliating scrub and extraction. To help replenish the skin, the facial ends with a soothing mask used to balance and hydrate your skin, and alleviate shaving irritation.', cost:'$110')
+Men Facial = Service.create(name: 'Gentlemans Facial', duration:'60 mins', description:'The gentlemans facial begins with a deep cleansing, followed by an exfoliating scrub and extraction. To help replenish the skin, the facial ends with a soothing mask used to balance and hydrate your skin, and alleviate shaving irritation.', cost:'$110')
 
 Improve = Service.create(name: 'Improve Facial', duration:'60 mins', description:'Designed to improve your skin by clearing congested pores and clarifying your skin. This facial includes an enzyme and nutrient formulated mask to promote deep pore cleansing, in addition to an extraction and massage.', cost:'$110')
 
