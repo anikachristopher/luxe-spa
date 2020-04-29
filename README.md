@@ -1,43 +1,10 @@
-Notes
+Welcome To Luxe Spa - Where Luxury Meets Wellness.
 
-Models:
+This application was built using the Ruby on Rails framework.
 
-Appointment
-    belongs_to :Client
-    has_many :services
-    has_many :clients, through: :services
-    belongs_to :services
-    
-    Attributes
-    date
-    time
+To use this application, fork and clone this project's repo using the github link followed by running bundle install. 
 
+Then run migrations using the various rake actions, db:migrate and db:seed.
 
-                                                                             join table - ClientAppointment
+Lastly, start a rails server (rails server or rails s).
 
-Client(User)
-    has_many :appointments
-    has_many :reviews
-    has_many :appointment_reviews, through :appointments
-    has_many :services, through: :appointments
-
-    Attributes
-    username
-    email
-    phone
-    password_digest
-
-
-Review(Comment)
-    belongs_to :client
-    belongs_to :appointment
-    content
-
-
-Service
-    has_many :appointments
-    has_many :clients, through: :appointments
-
-    attributes
-    name
-    duration 

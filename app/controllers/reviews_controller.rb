@@ -34,6 +34,11 @@ class ReviewsController < ApplicationController
         redirect_to review_path(@review) #review URL helpers 
     end
 
+    def destroy
+        Review.find(params[:id]).destroy
+        redirect_to client_path(current_client)
+    end
+
     private
 
     def review_params
