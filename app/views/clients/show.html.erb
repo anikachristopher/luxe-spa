@@ -1,4 +1,10 @@
 
-<h1>Welcome <%=@client.first_name%></h1>
-<p> Click the link below to see our services </p>
-<%= link_to "Services", service_path %>
+<h1 class="brown-text"> Welcome <%=@client.first_name%>!</h1>
+<h5><%= link_to "Display Appointments", client_appointments_path(appointment_path)%></h5>
+<ul>
+<% @client.appointments.each do |appointment| %>
+    <li><%= link_to appointment.service.name, client_appointments_path(@client,appointment) %></li>
+<% end %>
+</ul>
+<br>
+<p><%= link_to "Add new Appointment", new_appointment_path%></p> 

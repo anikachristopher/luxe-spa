@@ -1,8 +1,8 @@
-<h2>Upcoming Appointments for <%= current_client.first_name %></h2>
+<h2 class="brown-text">Upcoming Appointments for <%= current_client.first_name %></h2>
 <% if @appointments.blank? %>
-<p>There are not any appointments currently in the system.</p>
+<h4 class="red-text">You have no upcoming appointments.</h4>
 <% else %>
-<p>These are your current appointments in our system</p>
+<h4 class="brown-text">These are your upcoming appointments:</h4>
 
 <ul id = "appointments">
    <% @appointments.each do |f| %>
