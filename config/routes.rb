@@ -12,15 +12,17 @@ delete '/logout' => 'sessions#destroy'
 get '/auth/google_oauth2/callback' => 'sessions#google'
 
 
-resources :appointments, only: [:new, :create, :index, :show]
+resources :appointments 
+
+resources :reviews, only: [:new, :create, :show]
 
 resources :services, only: [:index, :show]
 
 resources :clients do
-  resources :clients, only: [:new, :create, :index]
+  resources :appointments, only: [:new, :create, :index]
 end
 
-  resources :reviews
+  #resources :reviews
   #resources :clients
   #resources :appointments
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

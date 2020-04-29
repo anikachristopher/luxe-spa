@@ -1,14 +1,20 @@
 class ReviewsController < ApplicationController
     before_action :login_required
 
+    def index
+        @reviews = Review.all
+    end
+    
     def new
         @review = Review.new
+        @review.appointment_id = params[:appointment_id]
     end
 
     def create
         @review = current_client.reviews.build(review_params)
+        # binding.pry
         if @review.save
-            redirect_to appointment_path
+            redirect_to appointment_path(review_params[:appointment_id])
         else
             render :new
         end
@@ -31,7 +37,7 @@ class ReviewsController < ApplicationController
     private
 
     def review_params
-        params.require(:review).permit(:content)
+        params.require(:review).permit(:content, :appointment_id)
     end
     
 

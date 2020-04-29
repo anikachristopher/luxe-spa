@@ -29,13 +29,13 @@ class ServicesController < ApplicationController
 
     def show
         # @services = Service.all
-        @service = Service.find_by_id(params[:id])
+        @service = Service.find(params[:id])
     end
 
     private
 
     def service_params
-        params.require(:service).permit(:name, :duration, :cost)
+        params.require(:service).permit(:name, :duration, :cost, :description)
     end 
 
 end
