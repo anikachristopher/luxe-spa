@@ -7,11 +7,15 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
-  <body>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <div>
+    </head>
+
+  <body class="brown lighten-5">
+      <ul>
+      <nav class="brown lighten-3">
       <% if is_logged_in? %>
       <%= link_to "Homepage", root_path %> |
       <%= link_to "Services", services_path %> |
@@ -24,7 +28,13 @@
       <%= link_to "Signup", signup_path %> |
       <%= link_to "Login", login_path %> 
     <% end %>
-    </div>
+      </ul>
+      </nav>
+    <div class="wrapper">
     <%= yield %>
+  </div>
   </body>
 </html>
+
+<!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

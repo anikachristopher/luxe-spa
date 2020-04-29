@@ -14,12 +14,12 @@ get '/auth/google_oauth2/callback' => 'sessions#google'
 
 resources :appointments 
 
-resources :reviews, only: [:new, :create, :show]
+resources :reviews, only: [:new, :create, :show, :edit]
 
 resources :services, only: [:index, :show]
 
 resources :clients do
-  resources :appointments, only: [:new, :create, :index]
+  resources :appointments, only: [:new, :create, :index, :edit]
 end
 
   #resources :reviews

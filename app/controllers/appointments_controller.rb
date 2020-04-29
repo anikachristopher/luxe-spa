@@ -28,9 +28,10 @@ class AppointmentsController < ApplicationController
 
     def update
         @appointment = Appointment.find(params[:id])
-        @appointment.update(title: params[:service][:date], cost: params[:service][:time])
+        @appointment.update(title: params[:appointment][:name], description: params[:appointment][:description])
         redirect_to appointments_path(@appointment)
     end
+
 
     def destroy
     end
@@ -42,3 +43,22 @@ class AppointmentsController < ApplicationController
     end
 
 end
+
+
+# def edit
+#     if current_client
+#       @appointment = current_client.appointments.find_by(id:params[:id])
+#       redirect_to client_appointments_path(@client) if !@appointment
+#     else
+#       redirect_to clients_path, alert: "Client not found"
+#     end
+#   end
+
+#   def update 
+#     @appointment = Appointment.find(params[:id])
+#     @appointment.update(appointment_params)
+#     if @appointment.save
+#       redirect_to @appointment
+#     else
+#       render :edit
+#     end
