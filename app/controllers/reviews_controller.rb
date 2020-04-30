@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
         @appointment = Appointment.find_by(title: review_params[:appointment_id])
         @review.appointment_id = @appointment.id
         if @review.save
-            redirect_to appointment_path(@appointment.id)
+            redirect_to appointment_path(review_params[@appointment.id])
         else
             render :new
         end
@@ -32,8 +32,8 @@ class ReviewsController < ApplicationController
 
     def update
         @review = Review.find(review_params[:id])
-        @review.update(name: review_params[:name], content: review_params[:content]) #have to add name column to reviews table. may not work since name is not part of schema
-        redirect_to review_path(@review) #review URL helpers 
+        @review.update(name: review_params[:name], content: review_params[:content])
+        redirect_to review_path(@review) 
     end
 
     def destroy

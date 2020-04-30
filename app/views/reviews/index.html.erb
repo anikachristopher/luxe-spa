@@ -1,8 +1,15 @@
 <h1> Happy to Show You Our Reviews! </h1>
 
+<ul id = "reviews">
 <% @reviews.each do |review|%>
-    <%= link_to review.content, review_path(review) %>
+    <li><%= link_to review.content, review_path(review) %></li>
 <% end %>
+</ul>
+<br>
+<br>
+<br>
+<%= link_to "Add a New Review", new_review_path %> |
+<%= link_to "Edit Review", edit_review_path(@reviews) %> | 
+<%= link_to "Delete Review", review_path(@reviews)%>
 
-<%= link_to "Add a New Review", new_review_path %>
 

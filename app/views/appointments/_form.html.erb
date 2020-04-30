@@ -1,4 +1,4 @@
-<h1>Add new Appointment</h1>
+<h1 class="brown-text">Add new Appointment</h1>
 
     <%= form_for(@appointment) do |f|%>
         <%= f.label "Choose a Service" %> 
@@ -20,6 +20,7 @@
     <%= f.label :time %>
     <%= f.time_field :time%>
     <br>
+    
     <%= f.submit "Submit" %>
 
     <% end %>
