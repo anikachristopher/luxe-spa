@@ -19,8 +19,8 @@ class SessionsController < ApplicationController
     end
 
 
-    
 
+    
     def google
         @client = Client.find_or_create_by(email: auth["info"]["email"]) do |client|
             client.first_name = auth["info"]["first_name"]

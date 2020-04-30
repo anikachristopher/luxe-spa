@@ -1,6 +1,5 @@
 <h1>Add new Appointment</h1>
 
-
     <%= form_for(@appointment) do |f|%>
         <%= f.label "Choose a Service" %> 
         <%= f.text_field :service_id, list: "service_autocomplete" %>     

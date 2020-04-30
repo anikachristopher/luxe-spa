@@ -11,6 +11,7 @@ class AppointmentsController < ApplicationController
 
     def create
         @appointment = current_client.appointments.build(appointment_params)
+        binding.pry
         @service = Service.find_by(name: appointment_params[:service_id])
         @appointment.service_id = @service.id
         if @appointment.save
@@ -25,7 +26,6 @@ class AppointmentsController < ApplicationController
     end
 
     def edit
-        binding.pry
         @appointment = Appointment.find(params[:id])
     end
 

@@ -7,8 +7,8 @@ class Client < ApplicationRecord
     has_many :reviews
     has_many :reviewed_appointments, through: :reviews, source: :client
     
-    validates :first_name, :last_name, :email, :password, presence: true
-    validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
+    validates_presence_of :first_name, :last_name, format: { with: /\A[a-zA-Z]+\Z/ }
+    validates :email, format: {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i}
 
     def self.from_omniauth(auth)
         where(email: auth.info.email).first_or_initialize do |client|
