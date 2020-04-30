@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
         @appointment = Appointment.find_by(title: review_params[:appointment_id])
         @review.appointment_id = @appointment.id
         if @review.save
-            redirect_to appointment_path(review_params[@appointment.id])
+            redirect_to appointment_path(@appointment.id)
         else
             render :new
         end
@@ -26,20 +26,22 @@ class ReviewsController < ApplicationController
         @review = Review.find_by_id(params[:id])
     end
 
-    def edit
-        @review = Review.find(params[:id])
-    end
+    # def edit
+    #     @review = Review.find(params[:id])
+    # end
 
-    def update
-        @review = Review.find(review_params[:id])
-        @review.update(name: review_params[:name], content: review_params[:content])
-        redirect_to review_path(@review) 
-    end
+    # def update
+    #     # binding.pry
+    #     @review = Review.find_by_id(params[:id])
+    #     @appointment = review_params[:appointment_id]
+    #     @review.update(content: review_params[:content], appointment_id: @appointment)
+    #     redirect_to review_path(@review) 
+    # end
 
-    def destroy
-        Review.find(params[:id]).destroy
-        redirect_to client_path(current_client)
-    end
+    # def destroy
+    #     Review.find(params[:id]).destroy
+    #     redirect_to client_path(current_client)
+    # end
 
     private
 
