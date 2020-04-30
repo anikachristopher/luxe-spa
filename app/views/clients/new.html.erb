@@ -1,6 +1,14 @@
 <h1>Create an Account</h1>
 
 <%= form_for(@client, url: '/signup') do |f|%>
+    <% if @client.errors.any? %>
+    <h4> Errors: </h4>
+      <ul>
+        <% @client.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+      </ul>
+    <%end%>
 
     <%= f.label :first_name %>
     <%= f.text_field :first_name  %>

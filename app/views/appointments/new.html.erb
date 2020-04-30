@@ -2,6 +2,7 @@
 
 
     <%= form_for(@appointment) do |f|%>
+        
 
     <%= f.label "Pick a Service" %><br/>
     <%= f.collection_select :service_id, Service.all, :id, :name, prompt: true %><br/>

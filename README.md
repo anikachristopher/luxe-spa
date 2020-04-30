@@ -6,5 +6,5 @@ To use this application, fork and clone this project's repo using the github lin
 
 Then run migrations using the various rake actions, db:migrate and db:seed.
 
-Lastly, start a rails server (rails server or rails s).
+Lastly, start a rails server (rails server or rails s) in the terminal.
 
