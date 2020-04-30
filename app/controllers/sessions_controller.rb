@@ -13,14 +13,14 @@ class SessionsController < ApplicationController
                 session[:client_id] = @client.id
                 redirect_to @client
             else
-                flash[:message] = "Hmm..That Doesn't Look Right. Please try again"
+                # flash[:message] = "Hmm..That Doesn't Look Right. Please try again"
                 redirect_to "/login"
         end
     end
 
 
 
-    
+
     def google
         @client = Client.find_or_create_by(email: auth["info"]["email"]) do |client|
             client.first_name = auth["info"]["first_name"]

@@ -9,7 +9,7 @@ module ApplicationHelper
 
     def login_required
         unless is_logged_in?
-            flash[:error] = "Hmm...Seems Like You're Not Logged In. Log In to Book an Appointment"
+            # flash[:error] = "Hmm...Seems Like You're Not Logged In. Log In to Book an Appointment"
             redirect_to login_path
         end
     end

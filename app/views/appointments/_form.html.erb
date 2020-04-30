@@ -1,6 +1,17 @@
 <h1 class="brown-text">Add new Appointment</h1>
 
     <%= form_for(@appointment) do |f|%>
+
+        <% if @appointment.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+    <% @appointment.errors.full_messages.each do |msg| %> 
+      <li class="flash-alert">* <%= msg %></li>
+    <% end %>
+    </ul>
+    </div>
+    <% end %>
+
         <%= f.label "Choose a Service" %> 
         <%= f.text_field :service_id, list: "service_autocomplete" %>     
         <datalist id= "service_autocomplete">   

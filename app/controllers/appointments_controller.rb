@@ -12,6 +12,7 @@ class AppointmentsController < ApplicationController
     def create
         @appointment = current_client.appointments.build(appointment_params)
         @service = Service.find_by(name: appointment_params[:service_id])
+        # binding.pry
         @appointment.service_id = @service.id
         if @appointment.save
             redirect_to appointment_path(@appointment.id)

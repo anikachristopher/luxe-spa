@@ -26,23 +26,6 @@ class ReviewsController < ApplicationController
         @review = Review.find_by_id(params[:id])
     end
 
-    # def edit
-    #     @review = Review.find(params[:id])
-    # end
-
-    # def update
-    #     # binding.pry
-    #     @review = Review.find_by_id(params[:id])
-    #     @appointment = review_params[:appointment_id]
-    #     @review.update(content: review_params[:content], appointment_id: @appointment)
-    #     redirect_to review_path(@review) 
-    # end
-
-    # def destroy
-    #     Review.find(params[:id]).destroy
-    #     redirect_to client_path(current_client)
-    # end
-
     private
 
     def review_params
