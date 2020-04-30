@@ -14,7 +14,7 @@ get '/auth/google_oauth2/callback' => 'sessions#google'
 
 resources :appointments 
 
-resources :reviews, only: [:new, :create, :show, :edit]
+resources :reviews
 
 resources :services, only: [:index, :show]
 

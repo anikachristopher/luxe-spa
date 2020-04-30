@@ -1,12 +1,1 @@
-<h1> Write a Review! </h1>
-
-<%= form_for(@review) do |f| %>
-
-    <%= f.label :content %>
-    <%= f.text_field :content %>
-
-    <br>
-    <br>
-    <%= f.submit %>
-
-<% end %>
+<%= render 'form', review: Review.new %>

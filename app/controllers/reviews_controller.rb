@@ -8,13 +8,15 @@ class ReviewsController < ApplicationController
     def new
         @review = Review.new
         @review.appointment_id = params[:appointment_id]
+        client_appointments
     end
 
     def create
         @review = current_client.reviews.build(review_params)
-        # binding.pry
+        @appointment = Appointment.find_by(title: review_params[:appointment_id])
+        @review.appointment_id = @appointment.id
         if @review.save
-            redirect_to appointment_path(review_params[:appointment_id])
+            redirect_to appointment_path(@appointment.id)
         else
             render :new
         end

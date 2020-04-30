@@ -7,6 +7,10 @@
 <ul id = "appointments">
    <% @appointments.each do |f| %>
    <li><%= link_to f.title, {:action => 'show', :id => f.id} -%></li>
+   <p>
+      <%= link_to "Edit Appointment", edit_appointment_path(@appointments) %> | 
+      <%= link_to "Delete Appointment", appointment_path(@appointments)%>
+   </p>
    <% end %>
 </ul>
 

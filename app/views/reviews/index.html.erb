@@ -1,8 +1,8 @@
 <h1> Happy to Show You Our Reviews! </h1>
 
 <% @reviews.each do |review|%>
-
+    <%= link_to review.content, review_path(review) %>
 <% end %>
 
-    <%= link_to "Homepage", root_path %>
+<%= link_to "Add a New Review", new_review_path %>
 

@@ -1,0 +1,26 @@
+<h1>Add new Appointment</h1>
+
+
+    <%= form_for(@appointment) do |f|%>
+        <%= f.label "Choose a Service" %> 
+        <%= f.text_field :service_id, list: "service_autocomplete" %>     
+        <datalist id= "service_autocomplete">   
+        <% Service.all.each do |service|%>         
+             <option value="<%= service.name %>">  
+             </option>       
+        <%end%>      
+             </datalist> 
+
+    <br>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <br>
+    <%= f.label :date %>
+    <%= f.date_field :date %>
+    <br>
+    <%= f.label :time %>
+    <%= f.time_field :time%>
+    <br>
+    <%= f.submit "Submit" %>
+
+    <% end %>

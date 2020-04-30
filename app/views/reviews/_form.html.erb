@@ -1,0 +1,20 @@
+<h1> Write a Review! </h1>
+
+<%= form_for(@review) do |f| %>
+  <%= f.label "Appointment" %> 
+    <%= f.text_field :appointment_id, list: "appointment_autocomplete" %>     
+    <datalist id= "appointment_autocomplete">       
+    <% client_appointments.each do |appointment|%>         
+         <option value="<%= appointment.title %>">  
+         </option>       
+    <%end%>      
+         </datalist>
+
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+
+    <br>
+    <%= f.submit %>
+
+<% end %>
+

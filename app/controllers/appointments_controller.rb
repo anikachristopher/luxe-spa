@@ -11,18 +11,21 @@ class AppointmentsController < ApplicationController
 
     def create
         @appointment = current_client.appointments.build(appointment_params)
+        @service = Service.find_by(name: appointment_params[:service_id])
+        @appointment.service_id = @service.id
         if @appointment.save
-            redirect_to appointment_path(@appointment)
+            redirect_to appointment_path(@appointment.id)
         else
             render :new
         end
     end
 
     def show
-        @appointment = Appointment.find(params[:id])
+        @appointment = Appointment.find(params[:appointment_id])
     end
 
     def edit
+        binding.pry
         @appointment = Appointment.find(params[:id])
     end
 
