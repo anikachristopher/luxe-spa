@@ -1,14 +1,13 @@
 
 <h1 class="brown-text"> Welcome <%=@client.first_name%>!</h1>
-<h6 class="brown-text"> "If you have appointments, see them below. Otherwise, click below to create a new appointment!"</h6>
+<h6 class="brown-text"> If you have appointments, see them below. Otherwise, click below to create a new appointment!</h6>
 <br>
 <br>
-<ol type = "1">
 <li>
 <% @client.appointments.each do |appointment| %>
     <li><%= link_to appointment.service.name, client_appointments_path(@client,appointment) %></li>
 <% end %>
 </li>
-</ol>
+
 <br>
 <a class="waves-effect waves-light btn-small"<%= link_to "Add new Appointment", new_appointment_path%></a>

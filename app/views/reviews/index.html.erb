@@ -2,14 +2,17 @@
 
 <ul id = "reviews">
 <% @reviews.each do |review|%>
-    <li><%= link_to review.content, review_path(review) %></li>
-<% end %>
+    <li>
+    <%= review.name %> says <%=review.content %><br>
+    <br>
+    <br>
+
+    <a class="waves-effect waves-light btn-small"<%= link_to "Delete Review", reviews_path, method: :delete, data: { confirm: "Are you sure?", disable_with: "Processing..." }%></a>
+    </li>
+    <% end %>
 </ul>
-<br>
-<br>
 <br>
 
 <a class="waves-effect waves-light btn-small"<%= link_to "Add a New Review", new_review_path%></a>
-
 
 

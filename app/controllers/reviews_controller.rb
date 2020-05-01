@@ -16,20 +16,27 @@ class ReviewsController < ApplicationController
         @appointment = Appointment.find_by(title: review_params[:appointment_id])
         @review.appointment_id = @appointment.id
         if @review.save
-            redirect_to appointment_path(@appointment.id)
+            redirect_to reviews_path
         else
             render :new
         end
     end
 
-    def show
-        @review = Review.find_by_id(params[:id])
+    # def show
+    #     @review = Review.find_by_id(params[:id])
+    # end
+
+
+    def destroy
+        Review.find(params[:id]).destroy
+        redirect_to reviews_path
     end
+
 
     private
 
     def review_params
-        params.require(:review).permit(:content, :appointment_id)
+        params.require(:review).permit(:name, :title, :content, :appointment_id)
     end
     
 
