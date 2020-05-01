@@ -1,4 +1,4 @@
-<h1> Happy to Show You Our Reviews! </h1>
+<h2 class="brown-text"> Happy to Show You Our Reviews! </h2>
 
 <ul id = "reviews">
 <% @reviews.each do |review|%>
@@ -8,6 +8,8 @@
 <br>
 <br>
 <br>
-<%= link_to "Add a New Review", new_review_path %> 
+
+<a class="waves-effect waves-light btn-small"<%= link_to "Add a New Review", new_review_path%></a>
+
 
 

@@ -10,15 +10,17 @@
  
     <h1>Service List</h1>
  
-    <ul>
+    <ol start="0">
+    <li>
       <% @services.each do |service| %>
         <li><%= link_to service.name, service_path(service)%></li>
 
       <% end %>
-    </ul>  
+    </li> 
+    </ol >
     <br>
     <br>
-    <%= link_to "Add new Appointment", appointments_path %>
+    <a class="waves-effect waves-light btn-small"<%= link_to "Add new Appointment", new_appointment_path%></a>
 </body>
 </html>
 
