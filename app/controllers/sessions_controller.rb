@@ -13,12 +13,9 @@ class SessionsController < ApplicationController
                 session[:client_id] = @client.id
                 redirect_to @client
             else
-                # flash[:message] = "Hmm..That Doesn't Look Right. Please try again"
                 redirect_to "/login"
         end
     end
-
-
 
 
     def google
