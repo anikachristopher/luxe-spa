@@ -22,17 +22,17 @@ class AppointmentsController < ApplicationController
     end
 
     def show
-        @appointment = Appointment.find(params[:id])
-    end
+        find_appointment #@appointment = Appointment.find(params[:id]) #build helper method for line 25, 29, 33 and put it in private method.
+    end                                                #use macro before_action (delete duplicated lines)
 
     def edit
-        @appointment = Appointment.find(params[:id])
+        find_appointment #@appointment = Appointment.find(params[:id]) #storing the appointment record in an instance variable
     end
 
     def update
-        @appointment = Appointment.find(params[:id])
-        @appointment.update(title: params[:appointment][:title], date: params[:appointment][:date], time: params[:appointment][:time])
-        redirect_to appointments_path(@appointment)
+        find_appointment #Querying the database for the appointment record that matches the id passed to the route. Stores the query in an inst var.
+        @appointment.update(title: params[:appointment][:title], date: params[:appointment][:date], time: params[:appointment][:time]) #Update the values passed from the form taking a hash of attributes for the model as its argument. Save the changes in the database.
+        redirect_to appointments_path(@appointment) #Redirect user to the show page so they could see the updated record.
     end
 
 
@@ -47,23 +47,9 @@ class AppointmentsController < ApplicationController
         params.require(:appointment).permit(:title, :date, :time, :service_id)
     end
 
+    def find_appointment
+        @appointment = Appointment.find(params[:id])
+    end
+
 end
 
-
-# def edit
-#     if current_client
-#       @appointment = current_client.appointments.find_by(id:params[:id])
-#       redirect_to client_appointments_path(@client) if !@appointment
-#     else
-#       redirect_to clients_path, alert: "Client not found"
-#     end
-#   end
-
-#   def update 
-#     @appointment = Appointment.find(params[:id])
-#     @appointment.update(appointment_params)
-#     if @appointment.save
-#       redirect_to @appointment
-#     else
-#       render :edit
-#     end

@@ -7,16 +7,6 @@
 <ul id = "appointments">
    <% @appointments.each do |f| %>
 
-      <% if @appointment.errors.any? %>
-      <div id="error_explanation">
-        <ul>
-        <% @appointment.errors.full_messages.each do |msg| %> 
-          <li class="flash-alert">* <%= msg %></li>
-        <% end %>
-        </ul>
-        </div>
-        <% end %>
-        
    <li><%= link_to f.title, {:action => 'show', :id => f.id} -%></li>
    <p>
       <%= link_to "Edit Appointment", edit_appointment_path(f) %> | 
