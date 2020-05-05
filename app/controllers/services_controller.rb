@@ -3,7 +3,7 @@ class ServicesController < ApplicationController
         if params[:search]
             @services = Service.search_service(params[:search])
         else
-            @services = Service.alpha
+            @services = Service.all.order(:name)
         end
     end
 
