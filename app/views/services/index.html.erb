@@ -12,12 +12,15 @@
  
     
     <li>
-      <% @services.each do |service| %>
-        <li><%= link_to service.name, service_path(service)%></li>
-
+      <% @services.each do |service| %> 
+        <li><%= link_to service.name, service_path(service)%></li> 
       <% end %>
     </li> 
-    
+    <%= form_tag services_path, method: :get do%>
+        <%= text_field_tag :search, params[:search]%>
+        <%= submit_tag ("Search")%>
+        <% end %>
+
     <br>
     <br>
     <a class="waves-effect waves-light btn-small"<%= link_to "Add new Appointment", new_appointment_path%></a>

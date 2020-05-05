@@ -15,7 +15,7 @@ class AppointmentsController < ApplicationController
         @service = Service.find_by(name: appointment_params[:service_id])
         @appointment.service_id = @service.id
         if @appointment.save
-            redirect_to appointment_path(@appointment.id)
+            redirect_to appointment_path(@appointment.name)
         else
             render :new
         end
@@ -29,7 +29,7 @@ class AppointmentsController < ApplicationController
 
 
     def update
-        @appointment.update(title: params[:appointment][:title], date: params[:appointment][:date], time: params[:appointment][:time]) 
+        find_appointment.update(appointment_params)
         redirect_to appointment_path(@appointment) 
     end
 
