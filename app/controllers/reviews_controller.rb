@@ -15,11 +15,6 @@ class ReviewsController < ApplicationController
         @review = current_client.reviews.build(review_params)
             if @review.save
             redirect_to reviews_path
-        # @review = current_client.reviews.build(review_params)
-        # @appointment = Appointment.find_by(title: review_params[:appointment_id])
-        # @review.appointment_id = @appointment.id
-        # if @review.save
-            redirect_to reviews_path
         else
             render :new
         end
